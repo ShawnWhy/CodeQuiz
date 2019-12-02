@@ -1,5 +1,5 @@
-#header{
-   
+body{
+    background-color: lightgoldenrodyellow;
 }
 #open-screen{
     height:100%;
@@ -29,14 +29,15 @@
 .youLoose{
     position:absolute;
     top:20%;
-    color:red;
+    left:30%;
+    color:lightsalmon;
     text-align:center;
     font-size:100px;
     font-family:Arial, Helvetica, sans-serif; 
 }
 .looserName{
     position:absolute;
-    top:30%;
+    top:60%;
     text-align:center;
 }
 
@@ -61,9 +62,9 @@
     width:100%;
     text-align:center;
 }
-#quiz-area{
+
     
-}
+
 #mouth{
     position:fixed;
     transform:scale(2.2);
@@ -110,13 +111,24 @@
 }
 .correct{
     font-weight:bold;
-    color:red;
-    font-size:40px;
+    color:lightcoral;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    position:relative;
+    top:-60%;
+
+
 }
 .wrong{
     font-weight:bold;
-    color:black ;
-    font-size:40px;
+    color:lightgray;
+    font-weight:bold;
+    font-size:20px;
+    text-align:center;
+    position:relative;
+    top:-60%;
+    
 }
 
 #time-counter{

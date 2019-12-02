@@ -10,9 +10,12 @@ var timeCounterText = document.querySelector("#counter-text");
 var scoreCounter = document.querySelector("#score-counter");
 var i=0;
 var score=0;
-var rate = 1;
+var rate = 1000;
 var countDown;
 var secondsCount = 20;
+var champion;
+var championScore;
+var loser;
 var questions = [
     {"question" : "what is the symbol that calls a element by ID?",
     "trueAnswer":"#",
@@ -32,9 +35,10 @@ var questions = [
      "trueAnswer":".push",
     "answers":[".add",".splice",".merge",".push"]},
     ];
-    // var champion=localStorage.getItem(Champ);
+    // champion=localStorage.getItem(Champ);
     // if(champion){
     //     championDisplay.textcontent=champion;
+    //     champion
     // };
 
 
@@ -42,7 +46,7 @@ var questions = [
 function startQuiz(){
      i=0;
      score=0;
-     rate = 1;
+     rate = 1000;
      countDown;
      secondsCount = 20;
     openingPage.setAttribute("style","visibility:hidden;");
@@ -60,7 +64,7 @@ function StartQuestioning(){
         answerBlock[j].setAttribute("value",tempAnswers[j]);}
         }; 
 function timer(){
-    var countDown = setInterval(function(){
+     countDown = setInterval(function(){
         timeCounter.firstChild.textContent=secondsCount;
         secondsCount--;
         if (secondsCount===0){
@@ -74,7 +78,22 @@ function timer(){
             looserNameInput.setAttribute("class","looserNameInput");
             looserNameInput.placeholder="your name";
             openingPage.appendChild(looserNameInput);
-        };},rate*1000)
+        };
+        if(score===questions.length){
+            clearInterval(countDown);
+            openingPage.setAttribute("style","visibility:visible");
+            var youLoose = document.createElement("div");
+            youLoose.textContent="YOU LOOSE!" 
+            youLoose.setAttribute("class","youLoose");
+            openingPage.appendChild(youLoose);
+            var looserNameInput = document.createElement("input")
+            looserNameInput.setAttribute("class","looserName");
+            looserNameInput.placeholder="your name";
+            openingPage.appendChild(looserName);
+        };
+        },rate)
+    };
+
     
     
  function pickAnswer(event){
@@ -82,6 +101,7 @@ function timer(){
             var element = event.currentTarget;
             if(element.firstChild.textContent === questions[i].trueAnswer){
                 var correct = document.createElement("div");
+                
                 correct.textContent="CORRECT!";
                 correct.setAttribute("class","correct");
                 element.appendChild(correct);
@@ -94,44 +114,29 @@ function timer(){
                 element.removeChild(correct);
                 element.classList.remove("toothExtractAnimation")},2000);
                 StartQuestioning();
-            
-            
-            
-            
             }
             else{
                 var wrong = document.createElement("div");
+               
+                wrong.textContent="WRONG!"
                 wrong.setAttribute("class","wrong");
                 element.appendChild(wrong);
                 element.classList.add("shakeAnimation");
-                rate /=2;
+                rate+=1000;
                 setTimeout(function(){
                 element.removeChild(wrong);
                 element.classList.remove("shakeAnimation");},1000);
             };
-           
         }
+           
+        
 answerBlock[0].addEventListener("click", pickAnswer);
  answerBlock[1].addEventListener("click", pickAnswer);
  answerBlock[2].addEventListener("click", pickAnswer);
  answerBlock[3].addEventListener("click", pickAnswer);
-};
 
-if(score===5){
-    console.log(questions.length);
-    clearInterval(countDown);
-    openingPage.setAttribute("style","visibility:visible");
-    var youLoose = document.createElement("div");
-    youLoose.textContent="YOU LOOSE!" 
-    youLoose.setAttribute("class","youLoose");
-    openingPage.appendChild(youLoose);
-    var looserNameInput = document.createElement("input")
-    looserNameInput.setAttribute("class","looserNameInput");
-    looserNameInput.placeholder="your name";
-    openingPage.appendChild(looserName);
 
-};
-        
+     
 
 
      
