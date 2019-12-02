@@ -32,12 +32,10 @@ var questions = [
      "trueAnswer":".push",
     "answers":[".add",".splice",".merge",".push"]},
     ];
-    var champion=localStorage.getItem(Champ);
-    if(champion){
-        championDisplay.textcontent=champion;
-    };
-
-    
+    // var champion=localStorage.getItem(Champ);
+    // if(champion){
+    //     championDisplay.textcontent=champion;
+    // };
 
 
 
