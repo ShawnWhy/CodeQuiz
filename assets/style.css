@@ -26,20 +26,40 @@ body{
     top:40%;
 }
 
+.youWin{
+    position:fixed;
+    top:10%;
+    left:30%;
+    color:lightsalmon;
+    text-align:center;
+    font-size:100px;
+    font-family:Arial, Helvetica, sans-serif; 
+
+
+
+}
+
 .youLoose{
-    position:absolute;
-    top:20%;
+    position:fixed;
+    top:10%;
     left:30%;
     color:lightsalmon;
     text-align:center;
     font-size:100px;
     font-family:Arial, Helvetica, sans-serif; 
 }
-.looserName{
-    position:absolute;
-    top:60%;
+#looserNameInput{
+    position:relative;
+    top:200px;
     text-align:center;
 }
+#winnerNameInput{
+    position:relative;
+    top:250px;
+    text-align:center;
+}
+
+
 
 
 #start-button:hover{
