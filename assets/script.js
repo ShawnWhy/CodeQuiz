@@ -49,30 +49,31 @@ var questions = [
 
 
     function setChampionDisplay(){
+        if (champ!==undefined){
      
             var championNameDisplay = document.createElement("div");
             
          championNameDisplay.textContent=champ;
         //  championNameDisplay.setAttribute("class","ChampionNameDisplay");
-            championDisplay.appendChild(championNameDisplay);
-    // if(champScore){
+            championDisplay.appendChild(championNameDisplay);}
+    if(champScore!==undefined){
         var championScoreDisplay=document.createElement("div");
         championScoreDisplay.textContent=champScore;
         championDisplay.appendChild(championScoreDisplay);
 
     };
-    // };
+    };
      
  function setLoserWall(){
 
-    // if(losers!== undefined&&losers !== null){
+    if(losers!== undefined&&losers !== null){
          for (var i=0; i<losers.length; i++){
              var loserSpot = document.createElement("div");
              loserSpot.textContent=losers[i].name;
              wallOfShameDisplay.appendChild(loserSpot);
 
          };}
-    //  }
+     }
 function calculateScore(){
     finalScore=score+secondsCount;
 }
